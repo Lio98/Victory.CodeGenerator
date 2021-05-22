@@ -7,9 +7,6 @@ namespace Victory.CodeGenerator.Facade
 {
    public  class ChartCase
     {
-
-
-
         public static String convertToCamelCase(string name)
         {
             string[] array = name.Split('_');

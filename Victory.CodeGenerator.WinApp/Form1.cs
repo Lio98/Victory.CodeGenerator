@@ -28,8 +28,6 @@ namespace Victory.CodeGenerator.WinApp
             InitializeComponent();
             LoadJsonFile();
             PaintTreeView(this.treeView1, temppath);
-          
-          
         }
 
 
