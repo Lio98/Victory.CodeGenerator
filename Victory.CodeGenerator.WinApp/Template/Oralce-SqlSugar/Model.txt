@@ -27,7 +27,7 @@ namespace @ViewBag.NameSpace
         @:[SugarColumn(IsPrimaryKey = true,OracleSequenceName = "SEQ_@(Model.Name)")]
         }
         @:public @item.PrimativeTypeName @item.CaseCamelName { get; set; }
-       
+        @:
         
 
       }
