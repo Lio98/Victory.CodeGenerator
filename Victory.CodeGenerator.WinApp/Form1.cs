@@ -319,13 +319,13 @@ namespace Victory.CodeGenerator.WinApp
             var myfilename = this.tb_myfilename.Text;
             Facade.CodeBuilder builder = new CodeBuilder(list,space,dbconn, type, template,savepath, myfilename);
 
-
-            if (builder.Build())
+            string msg = string.Empty;
+            if (builder.Build(out msg))
             {
-                MessageBox.Show("代码已全部生成！");   
+                MessageBox.Show("生成成功！","",MessageBoxButtons.OK,MessageBoxIcon.Information);   
                 return;
             }
-            MessageBox.Show("生成失败！");
+            MessageBox.Show($"生成失败！\n\r {msg}","",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
         }
 

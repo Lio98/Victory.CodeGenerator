@@ -41,8 +41,9 @@ namespace Victory.CodeGenerator.Facade
 
 
 
-        public bool Build()
+        public bool Build(out string msg)
         {
+            
             try
             {
                 var Db = DbFactory.DbOperation(this.DbType, this.Conn);
@@ -66,7 +67,8 @@ namespace Victory.CodeGenerator.Facade
 
                     string content = Engine.Razor.RunCompile(Template, TempName, typeof(ITableSchema), table, viewBag);
 
-                    string filename = ChartCase.convertToCamelCase(item) + "." + TempName + ".cs";
+                    //string filename = ChartCase.convertToCamelCase(item) + "." + TempName + ".cs";
+                    string filename = ChartCase.convertToCamelCase(item) + ".cs";
 
                     if (!string.IsNullOrEmpty(MyFilename))
                     {
@@ -85,12 +87,13 @@ namespace Victory.CodeGenerator.Facade
 
 
                 }
-
+                msg = "";
                 return true;
             }
             catch (Exception e)
             {
                 Console.Write(e.ToString());
+                msg = e.ToString();
                 return false;
             }
         }
